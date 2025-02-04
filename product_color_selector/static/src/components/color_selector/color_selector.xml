@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom_module.ColorSelector" owl="1">
+        <div class="o_field_color_selector" t-att-class="{'o_readonly': props.readonly}">
+            <div class="d-flex flex-wrap gap-2">
+                <t t-foreach="colors" t-as="color" t-key="color.value">
+                    <div 
+                        class="color-circle" 
+                        t-att-class="{'selected': color.value === selectedColor}"
+                        t-on-click="() => this.onColorClick(color.value)"
+                        t-att-style="'background-color: ' + color.color"
+                        t-att-title="color.label"
+                    />
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

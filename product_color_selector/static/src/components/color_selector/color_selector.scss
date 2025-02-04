@@ -1,0 +1,63 @@
+.o_field_color_selector {
+    padding: 0;
+    
+    .color-circle {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #e2e2e2;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        box-sizing: border-box;
+
+        &:hover {
+            transform: scale(1.1);
+            border-color: #7C7BAD;
+        }
+
+        &.selected {
+            transform: scale(1.1);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #7C7BAD;
+            z-index: 1;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Special handling for white color */
+        &[style*="background-color: #FFFFFF"],
+        &[style*="background-color: rgb(255, 255, 255)"] {
+            border: 2px solid #e2e2e2;
+            
+            // &.selected {
+            //     border: 2px solid #7C7BAD;
+            //     box-shadow: 0 0 0 2px #7C7BAD;
+            // }
+
+            &:hover {
+                border-color: #7C7BAD;
+            }
+        }
+    }
+
+    &.o_readonly {
+        .color-circle {
+            cursor: not-allowed;
+            opacity: 0.6;
+
+            &:hover {
+                transform: none;
+                border-color: #e2e2e2;
+            }
+
+            &.selected {
+                opacity: 1;
+                border-color: #7C7BAD;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
